@@ -1,0 +1,18 @@
+<div class="child-main">
+    <textarea [(ngModel)]="message" #messageVal rows="10" cols="60" placeholder="Enter your text....."></textarea>
+    <br>
+    <p>Your Message Count: {{message.length}}</p>
+    <br /><br />
+    <button *ngIf="message.length" (click)="messageDetails(messageVal.value)"> Submit</button> &nbsp;
+    <button *ngIf="submited" (click)="messageReset()"> Reset</button>
+    <div *ngIf="submited">
+        <h3>No of letters: {{obj.letters}}</h3>
+        <h3>No of Words: {{obj.words}}</h3>
+        <h3>Words</h3>
+        <div *ngFor="let word of obj.wordsWithCount | keyvalue let i = index">
+            <p>{{i + 1}}.  <b>{{word.key}}</b> - {{word.value}} </p>
+        </div>
+    </div>
+
+
+</div>
